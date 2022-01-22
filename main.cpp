@@ -8,15 +8,15 @@ private:
     static const int N = 20;
     std::array<std::array<bool, N>, N> grid;
     static std::random_device dev;
+    // TODO: need to be replace if we want to save specific seeds
     static std::mt19937 rng;
     static std::uniform_real_distribution<> dist;
-//    std::uniform_real_distribution<std::mt19937::result_type> dist = std::uniform_real_distribution<std::mt19937::result_type>(0.0, 1.0);
 
 // init_grid ~ initialise grid, fill with random stuff
 // print_grid
 // next_step
 // pad_input (?)
-// read_input (from file)
+// read_input (from file); could be random, padded, or tiled
 
 private:
     static char cell_representation(bool b) {
