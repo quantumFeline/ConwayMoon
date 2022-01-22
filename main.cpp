@@ -36,8 +36,13 @@ public:
         }
     }
 
-    void init_grid() {
-        float c = dist(rng);
+    void init_grid(float density) {
+	for (int i = 0; i < N; ++i){
+	    for (int j = 0; j < N; ++j){
+		float c = dist(rng);
+		grid[i][j] = c <= density;
+	    }
+	}
     }
 
 };
@@ -47,6 +52,8 @@ std::uniform_real_distribution<> ConwayGameOfLife::dist{0.0, 1.0};
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    //TODO print_grid();
+    ConwayGameOfLife gol;
+    gol.init_grid(0.4);
+    gol.print_grid();
     return 0;
 }
